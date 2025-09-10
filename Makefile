@@ -9,12 +9,12 @@ all: wav
 wav: build/$(WAV)
 
 build/$(WAV): $(ORCHESTRA) $(SCORE)
-	-mkdir -p build
+	mkdir -p build
 	csound $(ORCHESTRA) $(SCORE) -o build/$(WAV)
 
 .PHONY: clean
 clean:
-	-rm -rf build
+	rm -rf build
 
 .PHONY: re
 re: clean wav
