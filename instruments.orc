@@ -50,6 +50,7 @@ instr Organ
 		aCutoff = iCutoff * aFilterEnv
 		iResonance = 0.01
 		aFiltered = moogladder:a(aOscillator, aCutoff, iResonance)
+		aFiltered = moogladder:a(aFiltered, aCutoff, iResonance)
 
 		// ---------- Amp section ----------
 		iAmpAms = 140
