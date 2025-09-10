@@ -20,4 +20,4 @@ re: clean wav
 
 .PHONY: play
 play: wav
-	ffplay $(WAV)
+	ffplay -autoexit -nodisp $(WAV)
