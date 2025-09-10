@@ -17,7 +17,7 @@ instr Organ
 	iNote = p4  // a midi style note or -1
 	iAmp = p5
 
-	if iNote < 0 then
+	if iNote < 0 || iAmp <= 0 then
 		aSignal = 0
 		outall(aSignal)
 	else
@@ -29,9 +29,10 @@ instr Organ
 		// ---------- Chorus section ----------
 		iModulationAmplitude = 0.0001
 		iChorusSpeed = 0.1
-		iChorusInitialPhase = 2 * random(0, 3.14159)
+		iChorusInitialPhase = random(0, 1)
+		iLfoWavetable = -1 // sine
 
-		aLfo = poscil:a(iModulationAmplitude, iChorusSpeed, -1, iChorusInitialPhase)
+		aLfo = poscil:a(iModulationAmplitude, iChorusSpeed, iLfoWavetable, iChorusInitialPhase)
 		kModulatedFrequency = iFreq * (1 + aLfo)
 		aModulatedOscillator = vco2:a(iAmp, kModulatedFrequency, iWaveTable)
 
