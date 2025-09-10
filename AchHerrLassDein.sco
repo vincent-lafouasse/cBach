@@ -179,6 +179,6 @@ i.			+ 2		$Bb2	.
 i.			+ 4		$Eb3	.
 
 // reverb
-i99 0 30
+i "Reverb" 0 30
 
 e

@@ -55,7 +55,7 @@ instr Organ
 endin
 
 // reverb
-instr 99
+instr Reverb
 	iReverbAmount = ampdb:i(0)
 
 	// stereo reverb
