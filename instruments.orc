@@ -5,12 +5,13 @@ nchnls	= 2			// mono
 
 A4 = 415	// reference for cpsmidinn
 
-giVolume = ampdb:i(-12)
+giVolume = ampdb:i(-30)
 
 gaReverbSend init 0
 gaDelaySend init 0
 
 // modelled as a simple square wave subtractive synth
+// i produced artefacts at some point but i'm kinda into it
 instr Organ
 	// parameters
 	iNote = p4  // a midi style note or -1
@@ -73,7 +74,7 @@ instr Organ
 endin
 
 instr Reverb
-	iReverbVolume = ampdb:i(-6)
+	iReverbVolume = ampdb:i(-3)
 
 	// stereo reverb
 	kFeedbackLevel = 0.90	// reverb time
