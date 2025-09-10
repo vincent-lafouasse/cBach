@@ -1,11 +1,3 @@
-a4 = 69
-
-
-def cNote(octave):
-    c4 = a4 - 9
-    return c4 + 12 * (octave - 4)
-
-
 noteNames = [
     ["C", 0],
     ["Cs", 1],
@@ -28,12 +20,14 @@ noteNames = [
 
 
 def printOctave(octave):
-    print("// Octave {}".format(octave))
-    octaveStart = cNote(octave)
+    # c4 is 60
+    octaveStart = 60 + 12 * (octave - 4)
 
+    print("// Octave {}".format(octave))
     for [name, offset] in noteNames:
         print("#define {}{}\t#{}#".format(name, octave, octaveStart + offset))
 
 
-for octave in range(2, 6):
-    printOctave(octave)
+if __name__ == "__main__":
+    for octave in range(2, 6):
+        printOctave(octave)
