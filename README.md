@@ -2,6 +2,13 @@
 
 a Csound organ and some Bach, what more do you need
 
+## targets
+
+- all/wav
+- play
+- clean
+- re
+
 ## dependencies
 
 - Csound (duh)
