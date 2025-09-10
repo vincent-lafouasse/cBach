@@ -51,11 +51,11 @@ instr Organ
 		aFiltered = moogladder:a(aOscillator, aCutoff, iResonance)
 
 		// ---------- Amp section ----------
-		iAmpA = 0.14
-		iAmpD = 0.1
+		iAmpAms = 140
+		iAmpDms = 100
 		iAmpS = 0.9
-		iAmpR = 0.3
-		aAmpEnv = madsr:a(iAmpA, iAmpD, iAmpS, iAmpR)
+		iAmpRms = 300
+		aAmpEnv = madsr:a(iAmpAms / 1000, iAmpDms / 1000, iAmpS, iAmpRms / 1000)
 		aSignal = aFiltered * aAmpEnv
 
 		// ---------- Output section ----------
