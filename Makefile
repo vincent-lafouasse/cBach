@@ -1,24 +1,23 @@
-ORCHESTRA = ./instruments.orc
-SCORE = ./AchHerrLassDein.sco
+ORCHESTRA = instruments.orc
+SCORE = AchHerrLassDein.sco
 WAV = output.wav
 
 .PHONY: all
 all: wav
 
 .PHONY: wav
-wav: build/$(WAV)
+wav: $(WAV)
 
-build/$(WAV): $(ORCHESTRA) $(SCORE)
-	mkdir -p build
-	csound $(ORCHESTRA) $(SCORE) -o build/$(WAV)
+$(WAV): $(ORCHESTRA) $(SCORE)
+	csound $(ORCHESTRA) $(SCORE) -o $(WAV)
 
 .PHONY: clean
 clean:
-	rm -rf build
+	rm -rf $(WAV)
 
 .PHONY: re
 re: clean wav
 
 .PHONY: play
 play: wav
-	ffplay build/$(WAV)
+	ffplay $(WAV)
