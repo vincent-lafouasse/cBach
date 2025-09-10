@@ -26,6 +26,15 @@ instr Organ
 		iWaveTable = 10		// square
 		aOscillator = vco2:a(iAmp, iFreq, iWaveTable)
 
+		// ---------- Chorus section ----------
+		iModulationAmplitude = 0.0001
+		iChorusSpeed = 0.1
+		kModulatedFrequency = iFreq * (1 + lfo:k(iModulationAmplitude, iChorusSpeed))
+		aModulatedOscillator = vco2:a(iAmp, kModulatedFrequency, iWaveTable)
+
+		aOscillator += aModulatedOscillator
+		aOscillator /= 2
+
 		// ---------- Filter section ----------
 		//iFilterA = 0.05
 		//iFilterD = 0
