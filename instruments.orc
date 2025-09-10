@@ -45,7 +45,8 @@ instr Organ
 	aSignal *= giVolume
 	outs(aSignal, aSignal)
 
-	gaReverbSend += aSignal
+	iReverbSendAmount = 1.0
+	gaReverbSend += aSignal * iReverbSendAmount
 endin
 
 // reverb
