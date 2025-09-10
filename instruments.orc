@@ -68,7 +68,7 @@ instr Organ
 endin
 
 instr Reverb
-	iReverbAmount = ampdb:i(0)
+	iReverbVolume = ampdb:i(0)
 
 	// stereo reverb
 	kFeedbackLevel = 0.90	// reverb time
@@ -77,14 +77,15 @@ instr Reverb
 
 	// mono reverb
 	iReverbTime = 16.0	// secs
-	aReverb = iReverbAmount * giVolume * reverb:a(gaReverbSend, iReverbTime)
+	aMonoReverb = reverb:a(gaReverbSend, iReverbTime)
 
 	// mix
-	iStereoReverbAmount = 0.7
-	aOutL = iStereoReverbAmount * aOutL + (1 - iStereoReverbAmount) * aReverb
-	aOutR = iStereoReverbAmount * aOutR + (1 - iStereoReverbAmount) * aReverb
+	iStereoReverbAmount = 0.8
+	aOutL = iStereoReverbAmount * aOutL + (1 - iStereoReverbAmount) * aMonoReverb
+	aOutR = iStereoReverbAmount * aOutR + (1 - iStereoReverbAmount) * aMonoReverb
 
-	outs(aOutL * iReverbAmount * giVolume, aOutR * iReverbAmount * giVolume)
+	iEffectiveVolume = iReverbVolume * giVolume;
+	outs(aOutL * iEffectiveVolume, aOutR * iEffectiveVolume)
 
 	gaReverbSend  = 0
 endin
