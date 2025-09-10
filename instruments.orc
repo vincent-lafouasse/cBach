@@ -56,7 +56,7 @@ endin
 
 // reverb
 instr 99
-	iReverbAmount = ampdb:i(-6)
+	iReverbAmount = ampdb:i(0)
 
 	// stereo reverb
 	kFeedbackLevel = 0.90	// reverb time
@@ -72,7 +72,7 @@ instr 99
 	aOutL = iStereoReverbAmount * aOutL + (1 - iStereoReverbAmount) * aReverb
 	aOutR = iStereoReverbAmount * aOutR + (1 - iStereoReverbAmount) * aReverb
 
-	outs(aOutL * iReverbAmount, aOutR * iReverbAmount)
+	outs(aOutL * iReverbAmount * giVolume, aOutR * iReverbAmount * giVolume)
 
 	gaReverbSend  = 0
 endin
