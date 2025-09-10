@@ -10,6 +10,9 @@
 #define f #0.75#
 #define ff #1#
 
+// set tempo
+t 0 60 22 60 30 45
+
 // soprano
 
 i "Organ"	0 1		$Eb5	$n
@@ -47,7 +50,7 @@ i.			+ 1		$F5		.
 i.			+ 2		$Eb5	.
 i.			+ 1		$D5		.
 
-i.			+ 4		$Eb5	.
+i.			+ 3		$Eb5	.
 
 // alto
 
@@ -92,7 +95,7 @@ i.			+ 2		$F4		.
 i.			+ 1		$G4		.
 i.			+ 1		$Ab4	.
 
-i.			+ 4		$G4		.
+i.			+ 3		$G4		.
 
 // tenor
 
@@ -137,7 +140,7 @@ i.			+ 1		$Db4	.
 i.			+ 2		$C4		.
 i.			+ 2		$Bb3	.
 
-i.			+ 4		$Bb4	.
+i.			+ 3		$Bb4	.
 
 // bass
 
@@ -176,7 +179,7 @@ i.			+ 1		$Ab2	.
 i.			+ 1		$A2		.
 i.			+ 2		$Bb2	.
 
-i.			+ 4		$Eb3	.
+i.			+ 3		$Eb3	.
 
 i "Reverb" 0 30
 i "Delay" 0 30
