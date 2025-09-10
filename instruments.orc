@@ -24,17 +24,17 @@ instr Organ
 		iWaveTable = 10		// square
 		aOscillator = vco2:a(iAmp, iFreq, iWaveTable)
 
-		// ---------- Chorus section ----------
+		// ---------- Detune section ----------
 		iModulationAmplitude = 0.0001
-		iChorusSpeed = 0.1
-		iChorusInitialPhase = random(0, 1)
+		iModulationSpeed = 0.1
+		iInitialPhase = random(0, 1)
 		iLfoWavetable = -1 // sine
 
-		aLfo = poscil:a(iModulationAmplitude, iChorusSpeed, iLfoWavetable, iChorusInitialPhase)
+		aLfo = poscil:a(iModulationAmplitude, iModulationSpeed, iLfoWavetable, iInitialPhase)
 		kModulatedFrequency = iFreq * (1 + aLfo)
-		aModulatedOscillator = vco2:a(iAmp, kModulatedFrequency, iWaveTable)
+		aDetunedOscillator = vco2:a(iAmp, kModulatedFrequency, iWaveTable)
 
-		aOscillator += aModulatedOscillator
+		aOscillator += aDetunedOscillator
 		aOscillator /= 2
 
 		// ---------- Filter section ----------
