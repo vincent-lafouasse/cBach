@@ -14,7 +14,6 @@
 t 0 60 22 60 30 45
 
 // soprano
-
 i "Organ"	0 1		$Eb5	$n
 i.			+ 1		$D5		.
 i.			+ 1		$C5		.
@@ -53,7 +52,6 @@ i.			+ 1		$D5		.
 i.			+ 3		$Eb5	.
 
 // alto
-
 i "Organ"	0 1		$Bb4	$n
 i.			+ 1		$Bb4	.
 i.			+ 1		$G4		.
@@ -98,7 +96,6 @@ i.			+ 1		$Ab4	.
 i.			+ 3		$G4		.
 
 // tenor
-
 i "Organ"	0 1		$G4		$n
 i.			+ 1		$F4		.
 i.			+ 1		$Eb4	.
@@ -143,7 +140,6 @@ i.			+ 2		$Bb3	.
 i.			+ 3		$Bb4	.
 
 // bass
-
 i "Organ"	0 1		$Eb3	$n
 i.			+ 1		$Bb3	.
 i.			+ 1		$C4		.
