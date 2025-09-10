@@ -14,39 +14,44 @@ gaReverbSend init 0
 // modelled as a simple square wave subtractive synth
 instr Organ
 	// parameters
-	iNote = p4
+	iNote = p4  // a midi style note or -1
 	iAmp = p5
 
-	// ---------- Oscillator section ----------
-	iFreq = cpsmidinn(iNote)
-	iWaveTable = 10		// square
-	aOscillator = vco2:a(iAmp, iFreq, iWaveTable)
+	if iNote < 0 then
+		aSignal = 0
+		outs(aSignal, aSignal)
+	else
+		// ---------- Oscillator section ----------
+		iFreq = cpsmidinn(iNote)
+		iWaveTable = 10		// square
+		aOscillator = vco2:a(iAmp, iFreq, iWaveTable)
 
-	// ---------- Filter section ----------
-	//iFilterA = 0.05
-	//iFilterD = 0
-	//iFilterS = 1
-	//iFilterR = 0.05
-	//aFilterEnv = madsr:k(iFilterA, iFilterD, iFilterS, iFilterR)
+		// ---------- Filter section ----------
+		//iFilterA = 0.05
+		//iFilterD = 0
+		//iFilterS = 1
+		//iFilterR = 0.05
+		//aFilterEnv = madsr:k(iFilterA, iFilterD, iFilterS, iFilterR)
 
-	iCutoff = 7000
-	iResonance = 0.01
-	aFiltered = moogladder:a(aOscillator, iCutoff /* * aFilterEnv */, iResonance)
+		iCutoff = 7000
+		iResonance = 0.01
+		aFiltered = moogladder:a(aOscillator, iCutoff /* * aFilterEnv */, iResonance)
 
-	// ---------- Amp section ----------
-	iAmpA = 0.14
-	iAmpD = 0.1
-	iAmpS = 0.9
-	iAmpR = 0.3
-	aAmpEnv = madsr:a(iAmpA, iAmpD, iAmpS, iAmpR)
-	aSignal = aFiltered * aAmpEnv
+		// ---------- Amp section ----------
+		iAmpA = 0.14
+		iAmpD = 0.1
+		iAmpS = 0.9
+		iAmpR = 0.3
+		aAmpEnv = madsr:a(iAmpA, iAmpD, iAmpS, iAmpR)
+		aSignal = aFiltered * aAmpEnv
 
-	// ---------- Output section ----------
-	aSignal *= giVolume
-	outs(aSignal, aSignal)
+		// ---------- Output section ----------
+		aSignal *= giVolume
+		outs(aSignal, aSignal)
 
-	iReverbSendAmount = 1.0
-	gaReverbSend += aSignal * iReverbSendAmount
+		iReverbSendAmount = 1.0
+		gaReverbSend += aSignal * iReverbSendAmount
+	endif
 endin
 
 // reverb
