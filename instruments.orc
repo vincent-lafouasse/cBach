@@ -8,6 +8,7 @@ A4 = 415	// reference for cpsmidinn
 giVolume = ampdb:i(-12)
 
 gaReverbSend init 0
+gaDelaySend init 0
 
 // modelled as a simple square wave subtractive synth
 instr Organ
@@ -64,11 +65,14 @@ instr Organ
 
 		iReverbSendAmount = 1.0
 		gaReverbSend += aSignal * iReverbSendAmount
+
+		iDelaySendAmount = 1.0
+		gaDelaySend += aSignal * iDelaySendAmount
 	endif
 endin
 
 instr Reverb
-	iReverbVolume = ampdb:i(0)
+	iReverbVolume = ampdb:i(-6)
 
 	// stereo reverb
 	kFeedbackLevel = 0.90	// reverb time
@@ -88,4 +92,17 @@ instr Reverb
 	outs(aOutL * iEffectiveVolume, aOutR * iEffectiveVolume)
 
 	gaReverbSend  = 0
+endin
+
+instr Delay
+	iDelayVolume = ampdb:i(-10)
+	iDelayTime = 0.6  // secs
+	iFeedback = 0.01
+
+	aOut = delayr:a(iDelayTime)
+	delayw(gaDelaySend + (aOut * iFeedback))
+
+	outall(aOut * iDelayVolume * giVolume)
+
+	gaDelaySend  = 0
 endin

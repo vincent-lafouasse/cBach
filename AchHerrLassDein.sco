@@ -178,7 +178,7 @@ i.			+ 2		$Bb2	.
 
 i.			+ 4		$Eb3	.
 
-// reverb
 i "Reverb" 0 30
+i "Delay" 0 30
 
 e
