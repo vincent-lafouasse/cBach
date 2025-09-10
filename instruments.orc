@@ -9,8 +9,6 @@ giVolume = ampdb:i(-12)
 
 gaReverbSend init 0
 
-// an organ
-//
 // modelled as a simple square wave subtractive synth
 instr Organ
 	// parameters
@@ -69,7 +67,6 @@ instr Organ
 	endif
 endin
 
-// reverb
 instr Reverb
 	iReverbAmount = ampdb:i(0)
 
