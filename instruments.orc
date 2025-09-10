@@ -5,8 +5,16 @@ nchnls	= 2			// mono
 
 A4 = 415	// reference for cpsmidinn
 
-giVolume = ampdb:i(-30)
+// mixing console
+giOrganVolume = ampdb:i(0)
+giReverbVolume = ampdb:i(-3)
+giDelayVolume = ampdb:i(-10)
 
+giReverbSendAmount = 1.0
+giDelaySendAmount = 1.0
+giMasterVolume = ampdb:i(-30)
+
+// internals
 gaReverbSend init 0
 gaDelaySend init 0
 
@@ -16,6 +24,8 @@ instr Organ
 	// parameters
 	iNote = p4  // a midi style note or -1
 	iAmp = p5
+
+	iAmp *= giOrganVolume
 
 	if iNote < 0 || iAmp <= 0 then
 		aSignal = 0
@@ -62,19 +72,16 @@ instr Organ
 		aSignal = aFiltered * aAmpEnv
 
 		// ---------- Output section ----------
-		aSignal *= giVolume
+		aSignal *= giMasterVolume
 		outall(aSignal)
 
-		iReverbSendAmount = 1.0
-		gaReverbSend += aSignal * iReverbSendAmount
+		gaReverbSend += aSignal * giReverbSendAmount
 
-		iDelaySendAmount = 1.0
-		gaDelaySend += aSignal * iDelaySendAmount
+		gaDelaySend += aSignal * giDelaySendAmount
 	endif
 endin
 
 instr Reverb
-	iReverbVolume = ampdb:i(-3)
 
 	// stereo reverb
 	kFeedbackLevel = 0.90	// reverb time
@@ -90,21 +97,22 @@ instr Reverb
 	aOutL = iStereoReverbAmount * aOutL + (1 - iStereoReverbAmount) * aMonoReverb
 	aOutR = iStereoReverbAmount * aOutR + (1 - iStereoReverbAmount) * aMonoReverb
 
-	iEffectiveVolume = iReverbVolume * giVolume;
-	outs(aOutL * iEffectiveVolume, aOutR * iEffectiveVolume)
+	aOutL *= giReverbVolume * giMasterVolume;
+	aOutR *= giReverbVolume * giMasterVolume;
+
+	outs(aOutL, aOutR)
 
 	gaReverbSend  = 0
 endin
 
 instr Delay
-	iDelayVolume = ampdb:i(-10)
 	iDelayTime = 0.6  // secs
 	iFeedback = 0.01
 
 	aOut = delayr:a(iDelayTime)
 	delayw(gaDelaySend + (aOut * iFeedback))
 
-	outall(aOut * iDelayVolume * giVolume)
+	outall(aOut * giDelayVolume * giMasterVolume)
 
 	gaDelaySend  = 0
 endin
