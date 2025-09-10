@@ -1,4 +1,5 @@
-CSOUND_FILE = ./AchHerrLassDein.csd
+ORCHESTRA = ./instruments.orc
+SCORE = ./AchHerrLassDein.sco
 WAV = output.wav
 
 .PHONY: all
@@ -7,9 +8,9 @@ all: wav
 .PHONY: wav
 wav: build/$(WAV)
 
-build/$(WAV): $(CSOUND_FILE)
+build/$(WAV): $(ORCHESTRA) $(SCORE)
 	-mkdir -p build
-	csound $(CSOUND_FILE) -o build/$(WAV)
+	csound $(ORCHESTRA) $(SCORE) -o build/$(WAV)
 
 .PHONY: clean
 clean:
