@@ -29,7 +29,10 @@ instr Organ
 		// ---------- Chorus section ----------
 		iModulationAmplitude = 0.0001
 		iChorusSpeed = 0.1
-		kModulatedFrequency = iFreq * (1 + lfo:k(iModulationAmplitude, iChorusSpeed))
+		iChorusInitialPhase = 2 * random(0, 3.14159)
+
+		aLfo = poscil:a(iModulationAmplitude, iChorusSpeed, -1, iChorusInitialPhase)
+		kModulatedFrequency = iFreq * (1 + aLfo)
 		aModulatedOscillator = vco2:a(iAmp, kModulatedFrequency, iWaveTable)
 
 		aOscillator += aModulatedOscillator
