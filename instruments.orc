@@ -19,7 +19,7 @@ instr Organ
 
 	if iNote < 0 then
 		aSignal = 0
-		outs(aSignal, aSignal)
+		outall(aSignal)
 	else
 		// ---------- Oscillator section ----------
 		iFreq = cpsmidinn(iNote)
@@ -47,7 +47,7 @@ instr Organ
 
 		// ---------- Output section ----------
 		aSignal *= giVolume
-		outs(aSignal, aSignal)
+		outall(aSignal)
 
 		iReverbSendAmount = 1.0
 		gaReverbSend += aSignal * iReverbSendAmount
