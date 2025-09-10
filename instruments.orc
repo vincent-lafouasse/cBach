@@ -18,7 +18,7 @@ giMasterVolume = ampdb:i(-30)
 gaReverbSend init 0
 gaDelaySend init 0
 
-// modelled as a simple square wave subtractive synth
+// modeled as a simple square wave subtractive synth
 // i produced artefacts at some point but i'm kinda into it
 instr Organ
 	// parameters
