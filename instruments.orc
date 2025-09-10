@@ -7,7 +7,7 @@ A4 = 415	// reference for cpsmidinn
 
 giVolume = ampdb:i(-12)
 
-gaReverbBuffer init 0
+gaReverbSend init 0
 
 // an organ
 //
@@ -45,15 +45,15 @@ instr Organ
 	aSignal *= giVolume
 	outs(aSignal, aSignal)
 
-	gaReverbBuffer += aSignal
+	gaReverbSend += aSignal
 endin
 
 // reverb
 instr 99
 	iReverbAmount = ampdb:i(-12)
 	iReverbTime = 8.0	// secs
-	aReverb = iReverbAmount * giVolume * reverb:a(gaReverbBuffer, iReverbTime)
+	aReverb = iReverbAmount * giVolume * reverb:a(gaReverbSend, iReverbTime)
 	outs(aReverb, aReverb)
 
-	gaReverbBuffer  = 0
+	gaReverbSend  = 0
 endin
