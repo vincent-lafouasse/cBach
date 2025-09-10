@@ -45,10 +45,12 @@ instr Organ
 		//iFilterS = 1
 		//iFilterR = 0.05
 		//aFilterEnv = madsr:k(iFilterA, iFilterD, iFilterS, iFilterR)
+		aFilterEnv = 1 // no envelope
 
 		iCutoff = 7000
+		aCutoff = iCutoff * aFilterEnv
 		iResonance = 0.01
-		aFiltered = moogladder:a(aOscillator, iCutoff /* * aFilterEnv */, iResonance)
+		aFiltered = moogladder:a(aOscillator, aCutoff, iResonance)
 
 		// ---------- Amp section ----------
 		iAmpA = 0.14
@@ -77,7 +79,7 @@ instr Reverb
 	aOutL,aOutR reverbsc gaReverbSend, gaReverbSend, kFeedbackLevel, kReverbCutoff
 
 	// mono reverb
-	iReverbTime = 8.0	// secs
+	iReverbTime = 16.0	// secs
 	aReverb = iReverbAmount * giVolume * reverb:a(gaReverbSend, iReverbTime)
 
 	// mix
