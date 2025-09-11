@@ -6,11 +6,11 @@ nchnls	= 2			// mono
 A4 = 415	// reference for cpsmidinn
 
 // mixing console
-giOrganVolume = ampdb:i(0)
+giOrganVolume = ampdb:i(-6)
 
-giReverbVolume = ampdb:i(-3)
-giDelayVolume = ampdb:i(-10)
-giMasterVolume = ampdb:i(-30)
+giReverbVolume = ampdb:i(0)
+giDelayVolume = ampdb:i(-5)
+giMasterVolume = ampdb:i(-15)
 
 giReverbSendAmount = 1.0
 giDelaySendAmount = 1.0

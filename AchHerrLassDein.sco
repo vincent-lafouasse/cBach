@@ -177,7 +177,7 @@ i.			+ 2		$Bb2	.
 
 i.			+ 3		$Eb3	.
 
-i "Reverb" 0 36
-i "Delay" 0 36
+i "Reverb" 0 40
+i "Delay" 0 40
 
 e
