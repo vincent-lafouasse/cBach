@@ -7,14 +7,15 @@ A4 = 415	// reference for cpsmidinn
 
 // mixing console
 giOrganVolume = ampdb:i(0)
+
 giReverbVolume = ampdb:i(-3)
 giDelayVolume = ampdb:i(-10)
+giMasterVolume = ampdb:i(-30)
 
 giReverbSendAmount = 1.0
 giDelaySendAmount = 1.0
-giMasterVolume = ampdb:i(-30)
 
-// internals
+// global buffers (aux send)
 gaReverbSend init 0
 gaDelaySend init 0
 
