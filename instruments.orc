@@ -23,29 +23,29 @@ gaDelaySend init 0
 // i produced artefacts at some point but i'm kinda into it
 instr Organ
 	// parameters
-	iNote = p4  // a midi style note or -1
-	iAmp = p5
+	iNote = p4  // a midi style note or -1, basically Option<0-127>
+	iAmplitude = p5   // dynamics normalized to [0, 1]
 
-	iAmp *= giOrganVolume
+	iAmplitude *= giOrganVolume
 
-	if iNote < 0 || iAmp <= 0 then
+	if iNote < 0 || iAmplitude <= 0 then
 		aSignal = 0
 		outall(aSignal)
 	else
 		// ---------- Oscillator section ----------
 		iFreq = cpsmidinn(iNote)
 		iWaveTable = 10		// square
-		aOscillator = vco2:a(iAmp, iFreq, iWaveTable)
+		aOscillator = vco2:a(iAmplitude, iFreq, iWaveTable)
 
 		// ---------- Detune/Unison ----------
 		iModulationAmplitude = 0.0001
 		iModulationSpeed = 0.1
-		iInitialPhase = random(0, 1)
 		iLfoWavetable = -1 // sine
+		iInitialPhase = random(0, 1)
 
 		aLfo = poscil:a(iModulationAmplitude, iModulationSpeed, iLfoWavetable, iInitialPhase)
 		kModulatedFrequency = iFreq * (1 + aLfo)
-		aDetunedOscillator = vco2:a(iAmp, kModulatedFrequency, iWaveTable)
+		aDetunedOscillator = vco2:a(iAmplitude, kModulatedFrequency, iWaveTable)
 
 		aOscillator += aDetunedOscillator
 		aOscillator /= 2
@@ -65,11 +65,11 @@ instr Organ
 		aFiltered = moogladder:a(aFiltered, aCutoff, iResonance)
 
 		// ---------- Amp section ----------
-		iAmpAms = 140
-		iAmpDms = 100
-		iAmpS = 0.9
-		iAmpRms = 300
-		aAmpEnv = madsr:a(iAmpAms / 1000, iAmpDms / 1000, iAmpS, iAmpRms / 1000)
+		iAmplitudeAms = 140
+		iAmplitudeDms = 100
+		iAmplitudeS = 0.9
+		iAmplitudeRms = 300
+		aAmpEnv = madsr:a(iAmplitudeAms / 1000, iAmplitudeDms / 1000, iAmplitudeS, iAmplitudeRms / 1000)
 		aSignal = aFiltered * aAmpEnv
 
 		// ---------- Output section ----------
