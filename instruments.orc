@@ -60,7 +60,7 @@ instr Organ
 		aCutoff = iCutoff * aFilterEnv
 		iResonance = 0.01
 		aFiltered = moogladder:a(aOscillator, aCutoff, iResonance)
-		aFiltered = moogladder:a(aFiltered, aCutoff, iResonance)
+		aFiltered = moogladder:a(aFiltered, aCutoff, iResonance) // second pass for a steeper cut
 
 		// ---------- Amp section ----------
 		iAmplitudeAms = 140
