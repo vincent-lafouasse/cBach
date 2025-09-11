@@ -23,7 +23,7 @@ gaDelaySend init 0
 // i produced artefacts at some point but i'm kinda into it
 instr Organ
 	// parameters
-	iNote = p4  // a midi style note or -1, basically Option<0-127>
+	iNote = p4  // a midi note or -1, basically Option<0-127>
 	iAmplitude = p5   // dynamics normalized to [0, 1]
 
 	iAmplitude *= giOrganVolume
