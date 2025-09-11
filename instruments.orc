@@ -82,7 +82,7 @@ instr Organ
 	endif
 endin
 
-instr Reverb
+instr +Reverb
 
 	// stereo reverb
 	kFeedbackLevel = 0.90	// reverb time
@@ -106,7 +106,7 @@ instr Reverb
 	gaReverbSend  = 0
 endin
 
-instr Delay
+instr +Delay
 	iDelayTime = 0.6  // secs
 	iFeedback = 0.01
 
