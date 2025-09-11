@@ -1,6 +1,6 @@
 ORCHESTRA = instruments.orc
 SCORE = AchHerrLassDein.sco
-WAV = output.wav
+WAV = bach.wav
 
 .PHONY: all
 all: wav
