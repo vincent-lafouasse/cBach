@@ -42,8 +42,8 @@ instr Organ
 		iModulationSpeed = 0.1
 		iLfoWavetable = -1 // sine
 		iInitialPhase = random(0, 1)
-
 		aLfo = poscil:a(iModulationAmplitude, iModulationSpeed, iLfoWavetable, iInitialPhase)
+
 		kModulatedFrequency = iFreq * (1 + aLfo)
 		aDetunedOscillator = vco2:a(iAmplitude, kModulatedFrequency, iWaveTable)
 
