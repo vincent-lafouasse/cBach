@@ -26,8 +26,6 @@ instr Organ
 	iNote = p4  // a midi note or -1, basically Option<0-127>
 	iAmplitude = p5   // dynamics normalized to [0, 1]
 
-	iAmplitude *= giOrganVolume
-
 	if iNote < 0 || iAmplitude <= 0 then
 		aSignal = 0
 		outall(aSignal)
@@ -73,7 +71,7 @@ instr Organ
 		aSignal = aFiltered * aAmpEnv
 
 		// ---------- Output section ----------
-		aSignal *= giMasterVolume
+		aSignal *= giMasterVolume * giOrganVolume
 		outall(aSignal)
 
 		gaReverbSend += aSignal * giReverbSendAmount
@@ -83,7 +81,6 @@ instr Organ
 endin
 
 instr +Reverb
-
 	// stereo reverb
 	kFeedbackLevel = 0.90	// reverb time
 	kReverbCutoff = 9000
