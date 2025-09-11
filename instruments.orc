@@ -82,7 +82,7 @@ endin
 
 instr +Reverb
 	// stereo reverb
-	kFeedbackLevel = 0.90	// reverb time
+	kFeedbackLevel = 0.90
 	kReverbCutoff = 9000
 	aOutL,aOutR reverbsc gaReverbSend, gaReverbSend, kFeedbackLevel, kReverbCutoff
 
