@@ -35,8 +35,8 @@ instr Organ
 		iWaveTable = 10		// square
 		aOscillator = vco2:a(iAmplitude, iFreq, iWaveTable)
 
-		// ---------- Detune/Unison ----------
-		iModulationAmplitude = 0.0001
+		// ---------- Parallel frequency mod ----------
+		iModulationAmplitude = 0.0001 // but just a tiny bit
 		iModulationSpeed = 0.1
 		iLfoWavetable = -1 // sine
 		iInitialPhase = random(0, 1)
