@@ -70,9 +70,9 @@ instr Organ
 		aFiltered = moogladder:a(aFiltered, aCutoff, iResonance) // second pass for a steeper cut
 
 		// ---------- Amp section ----------
-		iAmplitudeAms = 140
-		iAmplitudeDms = 100
-		iAmplitudeS = 0.9
+		iAmplitudeAms = 150
+		iAmplitudeDms = 60
+		iAmplitudeS = 0.85
 		iAmplitudeRms = 300
 		aAmpEnv = madsr:a(iAmplitudeAms / 1000, iAmplitudeDms / 1000, iAmplitudeS, iAmplitudeRms / 1000)
 		aSignal = aFiltered * aAmpEnv
