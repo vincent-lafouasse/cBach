@@ -50,7 +50,7 @@ instr Organ
 
 		iDetunedSeed2 = random(-1, 1)
 		iDetunedFreq2 = iFreq * (1 + iSpread * iDetunedSeed2)
-		aDetunedOsc2 = vco2:a(iAmplitude, iDetunedFreq1, iWaveTable)
+		aDetunedOsc2 = vco2:a(iAmplitude, iDetunedFreq2, iWaveTable)
 
 		aOscillator += aDetunedOsc1 + aDetunedOsc2
 		aOscillator /= 3
