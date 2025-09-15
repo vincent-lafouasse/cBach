@@ -41,18 +41,19 @@ instr Organ
 		iWaveTable = 10		// square
 		aOscillator = vco2:a(iAmplitude, iFreq, iWaveTable)
 
-		// ---------- Parallel frequency mod ----------
-		iModulationAmplitude = 0.0001 // but just a tiny bit
-		iModulationSpeed = 0.1
-		iLfoWavetable = -1 // sine
-		iInitialPhase = random(0, 1)
-		aLfo = poscil:a(iModulationAmplitude, iModulationSpeed, iLfoWavetable, iInitialPhase)
+		// ---------- Unison/Detune ----------
+		iSpread = 0.0001 // but just a tiny bit
 
-		kModulatedFrequency = iFreq * (1 + aLfo)
-		aDetunedOscillator = vco2:a(iAmplitude, kModulatedFrequency, iWaveTable)
+		iDetunedSeed1 = random(-1, 1)
+		iDetunedFreq1 = iFreq * (1 + iSpread * iDetunedSeed1)
+		aDetunedOsc1 = vco2:a(iAmplitude, iDetunedFreq1, iWaveTable)
 
-		aOscillator += aDetunedOscillator
-		aOscillator /= 2
+		iDetunedSeed2 = random(-1, 1)
+		iDetunedFreq2 = iFreq * (1 + iSpread * iDetunedSeed2)
+		aDetunedOsc2 = vco2:a(iAmplitude, iDetunedFreq1, iWaveTable)
+
+		aOscillator += aDetunedOsc1 + aDetunedOsc2
+		aOscillator /= 3
 
 		// ---------- Filter section ----------
 		//iFilterA = 0.05
