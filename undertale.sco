@@ -110,7 +110,7 @@ i .			+ 0.5	$None	.
 i .			+ 3		$Eb4	.
 
 // counter melody
-i "Organ"	0 0.5	$None	$n
+i "Organ"	0 0.5	$None	$p
 i .			+ 0.5	$Eb3	.
 i .			+ 0.5	$Gb3	.
 i .			+ 0.5	$Ab3	.
