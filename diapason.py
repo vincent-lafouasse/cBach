@@ -33,5 +33,5 @@ def printOctave(octave):
 
 
 if __name__ == "__main__":
-    for octave in range(2, 6):
+    for octave in range(1, 8):
         printOctave(octave)
