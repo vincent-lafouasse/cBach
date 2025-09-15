@@ -1,4 +1,5 @@
 // Octave 2
+#define Cb2	#35#
 #define C2	#36#
 #define Cs2	#37#
 #define Db2	#37#
@@ -6,6 +7,8 @@
 #define Ds2	#39#
 #define Eb2	#39#
 #define E2	#40#
+#define Fb2	#40#
+#define Es2	#41#
 #define F2	#41#
 #define Fs2	#42#
 #define Gb2	#42#
@@ -16,7 +19,9 @@
 #define As2	#46#
 #define Bb2	#46#
 #define B2	#47#
+#define Bs2	#48#
 // Octave 3
+#define Cb3	#47#
 #define C3	#48#
 #define Cs3	#49#
 #define Db3	#49#
@@ -24,6 +29,8 @@
 #define Ds3	#51#
 #define Eb3	#51#
 #define E3	#52#
+#define Fb3	#52#
+#define Es3	#53#
 #define F3	#53#
 #define Fs3	#54#
 #define Gb3	#54#
@@ -34,7 +41,9 @@
 #define As3	#58#
 #define Bb3	#58#
 #define B3	#59#
+#define Bs3	#60#
 // Octave 4
+#define Cb4	#59#
 #define C4	#60#
 #define Cs4	#61#
 #define Db4	#61#
@@ -42,6 +51,8 @@
 #define Ds4	#63#
 #define Eb4	#63#
 #define E4	#64#
+#define Fb4	#64#
+#define Es4	#65#
 #define F4	#65#
 #define Fs4	#66#
 #define Gb4	#66#
@@ -52,7 +63,9 @@
 #define As4	#70#
 #define Bb4	#70#
 #define B4	#71#
+#define Bs4	#72#
 // Octave 5
+#define Cb5	#71#
 #define C5	#72#
 #define Cs5	#73#
 #define Db5	#73#
@@ -60,6 +73,8 @@
 #define Ds5	#75#
 #define Eb5	#75#
 #define E5	#76#
+#define Fb5	#76#
+#define Es5	#77#
 #define F5	#77#
 #define Fs5	#78#
 #define Gb5	#78#
@@ -70,3 +85,4 @@
 #define As5	#82#
 #define Bb5	#82#
 #define B5	#83#
+#define Bs5	#84#
