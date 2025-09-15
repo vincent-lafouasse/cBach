@@ -1,15 +1,13 @@
 ORCHESTRA = instruments.orc
-SCORE = AchHerrLassDein.sco
-WAV = bach.wav
 
 .PHONY: all
 all: wav
 
 .PHONY: wav
-wav: $(WAV)
+wav: AchHerrLassDein.wav undertale.wav
 
-$(WAV): $(ORCHESTRA) $(SCORE)
-	csound $(ORCHESTRA) $(SCORE) -o $(WAV)
+%.wav: %.sco $(ORCHESTRA)
+	csound $(ORCHESTRA) $< -o $@
 
 .PHONY: clean
 clean:
@@ -20,4 +18,4 @@ re: clean wav
 
 .PHONY: play
 play: wav
-	ffplay -autoexit -nodisp $(WAV)
+	ffplay -autoexit -nodisp undertale.wav
