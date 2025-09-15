@@ -11,12 +11,12 @@ giOrganVolume = ampdb:i(-6)
 giMasterVolume = ampdb:i(-15)
 
 // drier
-giReverbVolume = ampdb:i(-16)
-giDelayVolume = 0
+// giReverbVolume = ampdb:i(-16)
+// giDelayVolume = 0
 
 // wetter
-// giReverbVolume = ampdb:i(0)
-// giDelayVolume = ampdb:i(-5)
+giReverbVolume = ampdb:i(0)
+giDelayVolume = ampdb:i(-5)
 
 giReverbSendAmount = 1.0
 giDelaySendAmount = 1.0
