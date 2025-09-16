@@ -22,6 +22,7 @@ mp3: $(MP3)
 .PHONY: clean
 clean:
 	rm -rf $(WAV)
+	rm -rf $(MP3)
 
 .PHONY: re
 re: clean wav
