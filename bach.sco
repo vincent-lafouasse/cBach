@@ -19,7 +19,7 @@ a choral from Bach's St John Passion
 
 // maintain 60 bpm beats 0-22
 // rit. to 45 bpm by beat 30
-t 0 60 22 60 30 45
+t 0 60	22 60	30 45
 
 // soprano
 i "Organ"	0 1		$Eb5	$n
