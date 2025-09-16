@@ -13,11 +13,12 @@
 /*
 If Ye Love Me - Thomas Tallis (1565)
 
-anglican church music from the Renaissance
+anglican church music from the Renaissance period
 */
 
 // q = 50
-t 0 50
+// rit. to 25 starting beat 46
+t 0 50	46 50	50 25
 
 // soprano
 i "Organ"	0 1.5	$F4		$n
@@ -351,7 +352,7 @@ i .			+ 0.5	$C3		.
 
 i .			+ 4		$F3		.
 
-i "Reverb" 0 40
-i "Delay" 0 40
+i "Reverb" 0 60
+i "Delay" 0 60
 
 e
