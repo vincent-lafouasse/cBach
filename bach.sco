@@ -10,6 +10,13 @@
 #define f #0.75#
 #define ff #1#
 
+/*
+Ach Herr lass dein Engelein - J.S. Bach (1724)
+BWV 245
+
+a choral from Bach's St John Passion
+*/
+
 // maintain 60 bpm beats 0-22
 // rit. to 45 bpm by beat 30
 t 0 60 22 60 30 45

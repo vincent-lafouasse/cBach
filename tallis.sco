@@ -10,6 +10,12 @@
 #define f #0.75#
 #define ff #1#
 
+/*
+If Ye Love Me - Thomas Tallis (1565)
+
+anglican church music from the Renaissance
+*/
+
 // q = 50
 t 0 50
 
@@ -53,6 +59,41 @@ i .			+ 0.5	$E4		.
 
 i .			+ 1		$F4		.
 i .			+ 3		$None	.
+
+i .			+ 2.5	$None	.
+i .			+ 0.5	$F4		.
+i .			+ 1.5	$C5		.
+
+i .			+ 0.5	$Bb3	.
+i .			+ 0.5	$A4		.
+i .			+ 0.5	$G4		.
+i .			+ 0.5	$F4		.
+i .			+ 0.5	$A4		.
+i .			+ 1		$G4		.
+
+i .			+ 1		$G4		.
+i .			+ 3		$None	.
+
+i .			+ 0.5	$None	.
+i .			+ 1		$C5		.
+i .			+ 0.5	$F4		.
+i .			+ 0.5	$C5		.
+i .			+ 0.5	$Bb4	.
+
+i .			+ 1		$A4		.
+i .			+ 0.5	$G4		.
+i .			+ 1		$C5		.
+i .			+ 0.5	$F4		.
+
+i .			+ 0.5	$C5		.
+i .			+ 0.5	$Bb4	.
+i .			+ 0.5	$A4		.
+i .			+ 0.75	$G4		.
+i .			+ 0.25	$F4		.
+i .			+ 1		$F4		.
+i .			+ 0.5	$E3		.
+
+i .			+ 4		$F4		.
 
 // alto
 i "Organ"	0 1.5	$C4		$n
