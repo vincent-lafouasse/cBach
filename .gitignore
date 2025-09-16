@@ -3,4 +3,5 @@ build
 
 *.aif
 *.wav
+*.mp3
 *.asd

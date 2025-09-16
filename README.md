@@ -5,6 +5,7 @@ a Csound organ and some Bach, what more do you need
 ## targets
 
 - all/wav
+- mp3
 - play
 - clean
 - re
